@@ -44,7 +44,7 @@ body.is-loaded .page-loader { visibility: hidden; opacity: 0; }
 .site-header.is-scrolled { border-color: var(--line); background: color-mix(in srgb, var(--canvas) 91%, transparent); box-shadow: 0 12px 40px rgba(78, 61, 27, .06); backdrop-filter: blur(18px) saturate(140%); }
 .brand-lockup { display: inline-flex; align-items: center; gap: 12px; flex: 0 0 auto; }
 .brand-mark { display: grid; width: 44px; height: 44px; flex: 0 0 auto; place-items: center; overflow: hidden; border: 1px solid color-mix(in srgb, var(--accent) 72%, transparent); border-radius: 50%; background: #050505; box-shadow: 0 8px 24px rgba(78, 61, 27, .12); }
-.brand-mark img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.72) translateY(13%); }
+.brand-mark img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.92) translateY(11%); }
 .brand-name { font: 600 16px/1 var(--display); letter-spacing: .01em; }
 .brand-name span { display: block; margin-top: 5px; color: var(--accent); font: 700 8px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; }
 .main-navigation { display: flex; align-items: center; gap: clamp(16px, 2vw, 30px); }
