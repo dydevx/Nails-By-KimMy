@@ -15,7 +15,7 @@
 .hero-visual.reveal.is-visible .hero-image-note { animation: note-in .55s .5s ease both; }
 .video-choice:focus-visible, .gallery-item:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .service-image-arrow { transition: background .2s ease, color .2s ease, transform .35s cubic-bezier(.16, 1, .3, 1); }
-.service-image:hover .service-image-arrow { transform: rotate(45deg); background: var(--accent); color: #fffaf0; }
+.service-image:hover .service-image-arrow { transform: rotate(45deg); background: var(--accent); color: #241800; }
 .price-content .price-panel-heading { animation: price-panel-in .35s cubic-bezier(.16, 1, .3, 1) both; }
 .price-content .price-row { animation: price-row-in .34s cubic-bezier(.16, 1, .3, 1) both; }
 .price-content .price-row:nth-child(2) { animation-delay: 35ms; }
