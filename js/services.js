@@ -83,7 +83,7 @@ window.NBKServices = [
   },
   {
     id: "solar-nieuw",
-    name: "Solar nagels · nieuwe set",
+    name: "Solar nagels - nieuwe set",
     description: "Een nieuwe set met naturel, roze poeder of een ombre-effect.",
     image: "9.jpg",
     imageAlt: "Lichtblauwe en glitterende nagels in een ombre-ontwerp",
@@ -99,7 +99,7 @@ window.NBKServices = [
   },
   {
     id: "solar-opvullen",
-    name: "Solar nagels · opvullen",
+    name: "Solar nagels - opvullen",
     description: "Werk je solar nagels bij met een kleur of verfijnde French.",
     image: "10.jpg",
     imageAlt: "Diep bordeauxrode nagels met een hoogglanzende afwerking",
@@ -122,7 +122,7 @@ window.NBKServices = [
     startingPrice: "Vanaf € 3",
     items: [
       ["Nail art per nagel", "Vanaf € 3"],
-      ["Nail art – 10 nagels", "Vanaf € 20"],
+      ["Nail art - 10 nagels", "Vanaf € 20"],
       ["Nagels knippen", "€ 10"],
       ["Gellak verwijderen", "€ 10"],
       ["BIAB verwijderen", "€ 15"],

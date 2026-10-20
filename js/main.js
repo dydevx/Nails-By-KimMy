@@ -21,13 +21,13 @@
     { src: "video6.mp4", poster: "10.jpg", label: "Creatie 6" }
   ];
   const week = [
-    ["maandag", "09:30 – 18:00"],
-    ["dinsdag", "09:30 – 18:00"],
-    ["woensdag", "09:30 – 18:00"],
-    ["donderdag", "09:30 – 18:00"],
-    ["vrijdag", "09:30 – 18:00"],
-    ["zaterdag", "09:30 – 18:00"],
-    ["zondag", "12:00 – 17:00"]
+    ["maandag", "09:30 - 18:00"],
+    ["dinsdag", "09:30 - 18:00"],
+    ["woensdag", "09:30 - 18:00"],
+    ["donderdag", "09:30 - 18:00"],
+    ["vrijdag", "09:30 - 18:00"],
+    ["zaterdag", "09:30 - 18:00"],
+    ["zondag", "12:00 - 17:00"]
   ];
 
   const serviceGrid = document.querySelector("#service-grid");
@@ -51,13 +51,12 @@
         <article class="service-card reveal" style="--card-index:${index}">
           <a class="service-image" href="#prijzen" data-price-target="${service.id}" aria-label="Bekijk prijzen voor ${displayName || service.name}">
             <img src="${service.image}" alt="${service.imageAlt}" loading="lazy">
-            <span class="service-image-index">0${index + 1}</span>
-            <span class="service-image-arrow" aria-hidden="true">↗</span>
+            <span class="service-image-arrow" aria-hidden="true">→</span>
           </a>
           <div class="service-card-body">
             <h3>${displayName || service.name}</h3>
             <p>${service.description}</p>
-            <div class="service-card-bottom"><span>Vanaf <strong>${service.startingPrice.replace(/^Vanaf /, "")}</strong></span><a href="#prijzen" data-price-target="${service.id}">Bekijk prijzen <span aria-hidden="true">⟶</span></a></div>
+            <div class="service-card-bottom"><span>Vanaf <strong>${service.startingPrice.replace(/^Vanaf /, "")}</strong></span><a href="#prijzen" data-price-target="${service.id}">Bekijk prijzen <span aria-hidden="true">→</span></a></div>
           </div>
         </article>`;
     }).join("");
@@ -92,7 +91,7 @@
           <div class="price-row"><span>${name}</span><strong>${amount}</strong></div>
         `).join("")}
       </div>
-      ${service.note ? `<p class="category-note"><span aria-hidden="true">✳</span>${service.note}</p>` : ""}
+      ${service.note ? `<p class="category-note">${service.note}</p>` : ""}
     `;
   }
 
@@ -134,7 +133,7 @@
     video.src = item.src;
     video.poster = item.poster;
     video.load();
-    if (videoCaption) videoCaption.textContent = `Een kijkje in de studio · ${item.label.toLowerCase()}`;
+    if (videoCaption) videoCaption.textContent = `Een kijkje in de studio, ${item.label.toLowerCase()}`;
     videoPicker?.querySelectorAll(".video-choice").forEach((button, buttonIndex) => {
       const selected = buttonIndex === index;
       button.classList.toggle("is-active", selected);
@@ -153,7 +152,7 @@
     const item = galleryItems[activeGalleryIndex];
     lightboxImage.src = item.src;
     lightboxImage.alt = item.alt;
-    lightboxCaption.textContent = `${String(activeGalleryIndex + 1).padStart(2, "0")} / ${String(galleryItems.length).padStart(2, "0")} · ${item.alt}`;
+    lightboxCaption.textContent = `${String(activeGalleryIndex + 1).padStart(2, "0")} / ${String(galleryItems.length).padStart(2, "0")}: ${item.alt}`;
     if (!lightbox.open) lightbox.showModal();
   }
 
@@ -175,6 +174,10 @@
   showPriceGroup(services[0].id);
   document.querySelector("#copyright-year").textContent = String(new Date().getFullYear());
   setVideo(0);
+
+  video?.addEventListener("error", () => {
+    if (videoCaption) videoCaption.textContent = "De video kan momenteel niet worden geladen.";
+  });
 
   document.addEventListener("click", (event) => {
     const target = event.target;
@@ -236,15 +239,13 @@
   });
 
   const header = document.querySelector(".site-header");
-  let scrollTicking = false;
-  window.addEventListener("scroll", () => {
-    if (scrollTicking) return;
-    scrollTicking = true;
-    window.requestAnimationFrame(() => {
-      header?.classList.toggle("is-scrolled", window.scrollY > 24);
-      scrollTicking = false;
+  const headerSentinel = document.querySelector(".header-sentinel");
+  if (header && headerSentinel && "IntersectionObserver" in window) {
+    const headerObserver = new IntersectionObserver(([entry]) => {
+      header.classList.toggle("is-scrolled", !entry.isIntersecting);
     });
-  }, { passive: true });
+    headerObserver.observe(headerSentinel);
+  }
 
   if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
