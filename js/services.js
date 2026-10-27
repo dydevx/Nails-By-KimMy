@@ -73,7 +73,7 @@ window.NBKServices = [
     startingPrice: "€ 40",
     items: [
       ["Nieuwe set BIAB", "€ 45"],
-      ["BIAB opvullen", "€ 40"],
+      ["BIAB met verlengen", "€ 55"],
       ["Nieuwe set BIAB met gellak", "€ 55"],
       ["Nieuwe set BIAB met French", "€ 60"],
       ["BIAB opvullen met gellak", "€ 50"],
